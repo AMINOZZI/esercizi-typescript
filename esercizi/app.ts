@@ -1,6 +1,8 @@
 console.log("Your code goes here...");
 // add a function with 2 argument number and return sun
-function add(n1, n2) {
+function add(n1: number, n2: number) {
+  //check typeof
+  console.log(typeof number1);
   return n1 + n2;
 }
 //create 2 const number
