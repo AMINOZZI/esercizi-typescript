@@ -1,5 +1,5 @@
 console.log("Your code goes here...");
-// add a function with 4 argument with condition of showResul   and return sun
+// add a function with 4 argument with condition of showResult and return sun
 function add(n1: number, n2: number, showResult: boolean, phrase: string) {
   if (showResult) {
     console.log(n1 + n2);
