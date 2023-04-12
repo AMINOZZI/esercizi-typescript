@@ -5,8 +5,15 @@ const person = {
   // } = {
   name: "Amedeo",
   age: 33,
+  hobbies: ["Sports ,Cooking"],
 };
+let favoriteActivities: string[];
+for (const hobby of person.hobbies) {
+  console.log(hobby.toUpperCase());
+}
+favoriteActivities = ["Sports"];
 console.log(person.name);
+export {};
 
 //nested
 const product = {
