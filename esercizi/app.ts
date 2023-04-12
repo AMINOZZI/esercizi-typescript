@@ -13,6 +13,7 @@ for (const hobby of person.hobbies) {
 }
 favoriteActivities = ["Sports"];
 console.log(person.name);
+// ✅ variable declared successfully
 export {};
 
 //nested
