@@ -51,6 +51,6 @@ const product = {
   },
 };
 
-// if (person.personRole === ADMIN) {
-//   console.log("is ADMIN");
-// }
+if (person.personRole === PersonRole.ADMIN) {
+  console.log("is ADMIN");
+}
