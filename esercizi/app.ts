@@ -13,6 +13,9 @@ const person: {
   //use a tuple
   role: [2, "autore"],
 };
+person.role.push("admin");
+console.log(person);
+
 let favoriteActivities: string[];
 for (const hobby of person.hobbies) {
   console.log(hobby.toUpperCase());
@@ -20,7 +23,7 @@ for (const hobby of person.hobbies) {
 favoriteActivities = ["Sports"];
 console.log(person.name);
 // ✅ variable declared successfully
-export {};
+//export {};
 
 //nested
 const product = {
