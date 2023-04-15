@@ -1,11 +1,17 @@
 //create object
-const person = {
-  //   name: string;
-  //   age: number;
-  // } = {
+const person: {
+  name: string;
+  age: number;
+  // create a array
+  hobbies: string[];
+  // create a array with type inside
+  role: [number, string];
+} = {
   name: "Amedeo",
   age: 33,
   hobbies: ["Sports ,Cooking"],
+  //use a tuple
+  role: [2, "autore"],
 };
 let favoriteActivities: string[];
 for (const hobby of person.hobbies) {
