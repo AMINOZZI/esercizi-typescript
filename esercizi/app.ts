@@ -1,3 +1,14 @@
+//CREATE ENUM
+// const ADMIN = 0;
+// const READ_ONLY = 1;
+// const AUTHOR = 2;
+
+enum PersonRole {
+  ADMIN,
+  READ_ONLY,
+  AUTHOR,
+}
+
 //create object
 const person: {
   name: string;
@@ -6,13 +17,17 @@ const person: {
   hobbies: string[];
   // create a array with type inside
   role: [number, string];
+  personRole: number;
 } = {
   name: "Amedeo",
   age: 33,
   hobbies: ["Sports ,Cooking"],
   //use a tuple
   role: [2, "autore"],
+  //INSERT IN OBJECT
+  personRole: PersonRole.ADMIN,
 };
+
 person.role.push("admin");
 console.log(person);
 
@@ -35,3 +50,7 @@ const product = {
     description: "A great carpet - almost brand-new!",
   },
 };
+
+// if (person.personRole === ADMIN) {
+//   console.log("is ADMIN");
+// }
