@@ -11,5 +11,5 @@ function combine(input1: number | string, input2: number | string) {
 const conbineAges = combine(30, 34);
 console.log(conbineAges);
 //combine function two string
-const combineName = combine("jenny", "mary");
+const combineName = combine("jenny ", "mary");
 console.log(combineName);
