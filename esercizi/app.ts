@@ -1,9 +1,10 @@
-function add(n1: number, n2: number): number {
-  return n1 + n2;
-}
+let userInput: unknown;
+let userName: string;
 
-function printResult2(num: number): void {
-  console.log("Result:" + num);
+userInput = 5;
+userInput = "AME";
+//se definisco una variabile con unKnown il tipo deve passare dentro un if 
+//per evitare che ci siano problemi di assegnazione
+if (typeof userInput === "string") {
+  userName = userInput;
 }
-
-printResult2(add(5, 12));
