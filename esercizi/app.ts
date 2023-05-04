@@ -15,7 +15,7 @@ function aggiungi(a: number, b: number) {
 
 console.log(result);
 let isOld: boolean;
-//esempio di if
+//esempio di if con let introduce il nuovo concetto di block scope all'interno del if 
 if (age > 20) {
   isOld = true;
   console.log(isOld);
