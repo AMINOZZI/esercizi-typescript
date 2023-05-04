@@ -1,15 +1,22 @@
-let userInput: unknown;
-let userName: string;
+const userName = "Ame";
+//la definizione di costante è valore che non può essere riassegnato
+let age = 30;
+age = 29;
 
-userInput = 5;
-userInput = "AME";
-//se definisco una variabile con unKnown il tipo deve passare dentro un if
-//per evitare che ci siano problemi di assegnazione
-if (typeof userInput === "string") {
-  userName = userInput;
-}
-function generateError(message: string, code: number): never {
-  throw { message: message, errorCode: code };
+// let può essere riassegnata
+
+//esempio di scope in var global deve essere assegnata fuori
+//per accedervi
+var result;
+function aggiungi(a: number, b: number) {
+  result = a + b;
+  return result;
 }
 
-generateError("an error occurred!", 500);
+console.log(result);
+let isOld: boolean;
+//esempio di if
+if (age > 20) {
+  isOld = true;
+  console.log(isOld);
+}
