@@ -1,7 +1,8 @@
 // classe del oggetto con chiave e tipo
 class Department {
-  name: string;
-  employees: string[] = [];
+  public name: string;
+  //se definisco una classe private posso accervi solo all'interno della classe
+  private employees: string[] = [];
 
   constructor(n: string) {
     this.name = n;
@@ -24,7 +25,7 @@ class Department {
 const accounting = new Department("Accounting");
 accounting.addEmployee("Ame");
 accounting.addEmployee("Mario");
-accounting.employees[2] = "Anna";
+//accounting.employees[2] = "Anna";
 
 accounting.describe();
 accounting.printEmployeeInformation();
