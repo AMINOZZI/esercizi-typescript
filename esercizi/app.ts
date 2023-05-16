@@ -1,34 +1,78 @@
-// classe del oggetto con chiave e tipo
 class Department {
-  //variabile in sola lettura presente sono in typescript e non in js
-  private readonly id: string;
-  public name: string;
-  //se definisco una classe private posso accervi solo all'interno della classe
+  // private readonly id: string;
+  // private name: string;
   private employees: string[] = [];
 
-  constructor(n: string) {
-    this.name = n;
+  constructor(private readonly id: string, public name: string) {
+    // this.id = id;
+    // this.name = n;
   }
 
   describe(this: Department) {
-    console.log("department:" + this.name);
+    console.log(`Department (${this.id}): ${this.name}`);
   }
 
-  addEmployee(id, employee: string) {
-    //this.id = id
+  addEmployee(employee: string) {
+    // validation etc
+    // this.id = 'd2';
     this.employees.push(employee);
   }
 
   printEmployeeInformation() {
     console.log(this.employees.length);
+    console.log(this.employees);
   }
 }
 
-//istanza del oggetto
-const accounting = new Department("Accounting");
-accounting.addEmployee(this.id, "Ame");
-accounting.addEmployee(this.id, "Mario");
-//accounting.employees[2] = "Anna";
+// class ITDepartment extends Department {
+//   admins: string[];
+//   constructor(id: string, admins: string[]) {
+//     super(id, 'IT');
+//     this.admins = admins;
+//   }
+// }
+//esempio di sub class estensione della classe padre :si può estendere da una sola classe
+class DesignDepartment extends Department {
+  admins: string[];
+  constructor(id: string, admins: string[]) {
+    super(id, "Design");
+    this.admins = admins;
+  }
+}
 
-accounting.describe();
-accounting.printEmployeeInformation();
+class AccountingDepartment extends Department {
+  constructor(id: string, private reports: string[]) {
+    super(id, "Accounting");
+  }
+
+  addReport(text: string) {
+    this.reports.push(text);
+  }
+
+  printReports() {
+    console.log(this.reports);
+  }
+}
+
+const it = new DesignDepartment("d1", ["Max"]);
+
+it.addEmployee("Max");
+it.addEmployee("Manu");
+
+// it.employees[2] = 'Anna';
+
+it.describe();
+it.name = "NEW NAME";
+it.printEmployeeInformation();
+
+console.log(it);
+
+const accounting = new AccountingDepartment("d2", []);
+
+accounting.addReport("Something went wrong...");
+
+accounting.printReports();
+
+// const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
+
+// accountingCopy.describe();
