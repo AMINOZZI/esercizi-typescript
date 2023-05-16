@@ -23,15 +23,15 @@ class Department {
     console.log(this.employees);
   }
 }
-
-// class ITDepartment extends Department {
-//   admins: string[];
-//   constructor(id: string, admins: string[]) {
-//     super(id, 'IT');
-//     this.admins = admins;
-//   }
-// }
 //esempio di sub class estensione della classe padre :si può estendere da una sola classe
+class ITDepartment extends Department {
+  admins: string[];
+  constructor(id: string, admins: string[]) {
+    super(id, "IT");
+    this.admins = admins;
+  }
+}
+
 class DesignDepartment extends Department {
   admins: string[];
   constructor(id: string, admins: string[]) {
@@ -54,7 +54,9 @@ class AccountingDepartment extends Department {
   }
 }
 
-const it = new DesignDepartment("d1", ["Max"]);
+const it = new ITDepartment("d1", ["Max"]);
+
+const des = new DesignDepartment("d3", ["Amedeo"]);
 
 it.addEmployee("Max");
 it.addEmployee("Manu");
