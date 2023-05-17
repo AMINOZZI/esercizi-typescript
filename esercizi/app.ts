@@ -1,7 +1,8 @@
 class Department {
   // private readonly id: string;
   // private name: string;
-  private employees: string[] = [];
+  //accesso dalla sotto classe
+  protected employees: string[] = [];
 
   constructor(private readonly id: string, public name: string) {
     // this.id = id;
@@ -41,12 +42,36 @@ class DesignDepartment extends Department {
 }
 
 class AccountingDepartment extends Department {
+  private lastReport: string;
+
+  get mostRecentReport() {
+    if (this.lastReport) {
+      return this.lastReport;
+    }
+    throw new Error("No report found");
+  }
+
+  set mostRecentReport(value) {
+    if (!value) {
+      throw new Error("No value found");
+    }
+    this.addReport(value);
+  }
+
   constructor(id: string, private reports: string[]) {
     super(id, "Accounting");
+    this.lastReport = reports[0];
+  }
+  addEmployee(name: string) {
+    if (name === "Max") {
+      return;
+    }
+    this.employees.push(name);
   }
 
   addReport(text: string) {
     this.reports.push(text);
+    this.lastReport = text;
   }
 
   printReports() {
@@ -70,8 +95,9 @@ it.printEmployeeInformation();
 console.log(it);
 
 const accounting = new AccountingDepartment("d2", []);
-
+accounting.mostRecentReport = "Set value";
 accounting.addReport("Something went wrong...");
+console.log(accounting.mostRecentReport, "qui");
 
 accounting.printReports();
 
