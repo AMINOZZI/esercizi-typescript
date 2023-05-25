@@ -1,18 +1,16 @@
-//l'intefaccia dichiara solo le proprietà nel suo oggetto..non può essere utilizzata come factory o singleton
-//Le interfacce non posso usarle per creare oggetti. 
-//Sono classi astratte con metodi senza corpo. Inoltre non possono contenere costruttori.
-interface Pizza {
+interface Named {
+  readonly name: string;
+}
+// nella classe posso solo ereditare una volta mentre nelle interfacce posso ereditare da più interfacce 
+interface Greetable extends Named {
+  greet(phrase: string): void;
+}
+class Person2 implements Greetable {
   name: string;
-  toppings: string[];
-}
+  age = 30;
 
-class PizzaMaker {
-  static create(event: Pizza) {
-    return { name: event.name, toppings: event.toppings };
+  constructor(n: string) {
+    this.name = n;
   }
+  greet(phrase: string): void {}
 }
-//const instanza = new Pizza()// non possiamo instanziare un interfaccia
-const pizza = PizzaMaker.create({
-  name: "Inferno",
-  toppings: ["cheese", "peppers"],
-});
